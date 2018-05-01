@@ -15,7 +15,7 @@ This is simple Python API, for create services based on LinkedEvents (https://ap
 
 6. Search event(s) from their list of fav events
 
-Stacsk: Python 3.6, Flask, PynamoDB, AWS Serverless (Lambda, DynamoDB, and API Gateway)
+Stacks: Python 3.6, Flask, PynamoDB, AWS Serverless (Lambda, DynamoDB, and API Gateway)
 
 The deployment procedure is as follows:
 
@@ -44,7 +44,7 @@ The deployment procedure is as follows:
    is associated with the deployment. For example, you can use httpie:
 
         (venv) $ pip install httpie
-        (venv) $ http GET https://8q0k1rnwi2.execute-api.us-east-1.amazonaws.com/dev/
+        (venv) $ http GET <URL>/api
         HTTP/1.0 200 OK
         Content-Length: 62
         Content-Type: application/json
@@ -64,6 +64,6 @@ The deployment procedure is as follows:
 | POST  | URL/api/events | API for POST an event to become user specific event data. Data event will be taken from LinkedEvents, based on input event_id ( == id event in LinkedEvents)| event_id ( == id event in LinkedEvents, e.g: 'linkedevents:agg-100') |
 | GET   | URL/api/events/<event_id> | API for GET detail of a fav event data from specific user | - |
 | GET   | URL/api/events/free | API for GET list of (only) free fav event data from specific user | - |
-| POST | URL/api/events/search | API for POST query search based on input query (str) from user, and will find into fav event data specific user | query (free string) |
+| POST | URL/api/events/search | API for POST query search based on input query (str) from user, and will find into fav event data specific user. (In v.0.1 satill very basic, search contain words in all data) | query (free string) |
 | DELETE | URL/api/events/<event_id> | API for DELETE a fav event data from specific user | - |
             
