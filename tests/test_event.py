@@ -7,7 +7,7 @@ from app import *
 
 BASE_URL = 'http://127.0.0.1:5000/api'
 username = 'user1'
-password = 'solteq'
+password = 'password1'
 headers = {
     'Authorization': 'Basic ' + b64encode(bytes(username + ":" + password, 'ascii')).decode('ascii')
 }

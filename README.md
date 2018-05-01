@@ -41,7 +41,7 @@ The deployment procedure is as follows:
 
         (venv) $ zappa update dev
 
-5. Once the deployment completes, you can make requests to the endpoint that
+6. Once the deployment completes, you can make requests to the endpoint that
    is associated with the deployment. For example, you can use [httpie](https://httpie.org/):
 
         (venv) $ pip install httpie
@@ -72,7 +72,7 @@ The deployment procedure is as follows:
         x-amzn-RequestId: eaf00edc-4d55-11e8-b6c8-43945790ffb1
         {
             "event": {
-               "added_at": "Tue, 01 May 2018 15:40:05 GMT", 
+               "added_at": "Tue, 22 Apr 2018 08:35:53 GMT", 
                "end_time": "2018-05-08T08:30:00Z", 
                "id": "linkedevents:agg-100", 
                "is_free": true, 
@@ -92,7 +92,7 @@ The deployment procedure is as follows:
             }
         }
 
-6. Endpoint
+7. Endpoint
 
 | METHOD | URL | DESC | INPUT POST |
 | :--- | :--- | :--- | :--- |
@@ -103,3 +103,36 @@ The deployment procedure is as follows:
 | POST | URL/api/events/search | API for POST query search based on input query (str) from user, and will find into fav event data specific user. (In v.0.1 satill very basic, search contain words in all data) | query (free string) |
 | DELETE | URL/api/events/<event_id> | API for DELETE a fav event data from specific user | - |
             
+8. For unittest; make sure environment in testing STAGE (export STAGE="test") and the auth setting is valid.
+        (venv) $ export STAGE="test"
+        (venv) $ python test.py
+        test_1_home (test_event.EventTestCase)
+        Test API for home ... ok
+        test_2_api_get_empty (test_event.EventTestCase)
+        Test API for get fav events empty ... ok
+        test_3_api_get_events_unauthorized (test_event.EventTestCase)
+        Test API for unauthorized access to get fav events ... ok
+        test_4_api_add_event (test_event.EventTestCase)
+        Test API add fav event (POST request) ... ok
+        test_5_api_event_creation_bad_request (test_event.EventTestCase)
+        Test API return bad request when create an fav event with unvalid input (POST request) ... ok
+        test_6_api_add_event_2 (test_event.EventTestCase)
+        Test API add fav event (POST request) ... ok
+        test_7_api_can_get_all_events (test_event.EventTestCase)
+        Test API can get all of user fav events (GET request). ... ok
+        test_7_api_can_get_all_free_events (test_event.EventTestCase)
+        Test API can get only the free of user fav events (GET request). ... ok
+        test_8_api_can_get_one_event (test_event.EventTestCase)
+        Test API can get one user fav event based on input event_id (GET request). ... ok
+        test_9_api_event_not_found (test_event.EventTestCase)
+        Test API response event not found (GET request). ... ok
+
+        ----------------------------------------------------------------------
+        Ran 10 tests in 4.461s
+
+        OK
+
+
+
+
+
