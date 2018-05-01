@@ -1,3 +1,4 @@
+
 API Event Services in AWS Serverless
 ====================================
 
@@ -41,7 +42,7 @@ The deployment procedure is as follows:
         (venv) $ zappa update dev
 
 5. Once the deployment completes, you can make requests to the endpoint that
-   is associated with the deployment. For example, you can use httpie:
+   is associated with the deployment. For example, you can use [httpie](https://httpie.org/):
 
         (venv) $ pip install httpie
         (venv) $ http GET <URL>/api
@@ -54,6 +55,41 @@ The deployment procedure is as follows:
         {
             "name": "tasks", 
             "stage": "dev"
+        }
+        (venv) $ http POST --auth username:password POST <URL>/api/events event_id='linkedevents:agg-100'
+        HTTP/1.1 201 Created
+        Access-Control-Allow-Origin: *
+        Connection: keep-alive
+        Content-Length: 955
+        Content-Type: application/json
+        Date: Sun, 22 Apr 2018 08:35:53 GMT
+        Via: 1.1 3664cc1fd21a07e55327a9c256fa758a.cloudfront.net (CloudFront)
+        X-Amz-Cf-Id: 4hr2gSWj4QGaPCI2rgrJ80jAh6ujzarSXu8srfiNJcw0iejPsDjHbg==
+        X-Amzn-Trace-Id: sampled=0;root=1-5ae88a54-b47b21e13b61116c476a3558
+        X-Cache: Miss from cloudfront
+        x-amz-apigw-id: GNqNLH5BoAMF_BQ=
+        x-amzn-Remapped-Content-Length: 955
+        x-amzn-RequestId: eaf00edc-4d55-11e8-b6c8-43945790ffb1
+        {
+            "event": {
+               "added_at": "Tue, 01 May 2018 15:40:05 GMT", 
+               "end_time": "2018-05-08T08:30:00Z", 
+               "id": "linkedevents:agg-100", 
+               "is_free": true, 
+               "location": null, 
+               "name": {
+                  "en": "Päivätanssit", 
+                  "fi": "Päivätanssit", 
+                  "sv": "Päivätanssit"
+               }, 
+               "short_description": {
+                  "en": "Popular daytime dance events continue in Stoa, with the fantastic dance instructor couple Katja Koukkula and Jussi Väänänen.", 
+                  "fi": "Suositut päivätanssit jatkuvat Stoassa kilpatanssija- ja tanssinopettajapariskunnan Katja Koukkulan ja Jussi Väänäsen rautaisella opastuksella.", 
+                  "sv": "De populära dagsdanserna fortsätter på Stoa under handledning av tävlingsdans- och danslärarparet Katja Koukkula och Jussi Väänänen."
+               }, 
+               "start_time": "2018-03-06T08:30:00Z", 
+               "user": "user1"
+            }
         }
 
 6. Endpoint
