@@ -44,7 +44,7 @@ The deployment procedure is as follows:
    is associated with the deployment. For example, you can use httpie:
 
         (venv) $ pip install httpie
-        (venv) $ http GET https://8q0k1rnwi2.execute-api.us-east-1.amazonaws.com/dev/
+        (venv) $ http GET <URL>/api
         HTTP/1.0 200 OK
         Content-Length: 62
         Content-Type: application/json
