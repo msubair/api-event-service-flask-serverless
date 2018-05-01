@@ -104,6 +104,7 @@ The deployment procedure is as follows:
 | DELETE | URL/api/events/<event_id> | API for DELETE a fav event data from specific user | - |
             
 8. For unittest; make sure environment in testing STAGE (export STAGE="test") and the auth setting is valid.
+
         (venv) $ export STAGE="test"
         (venv) $ python test.py
         test_1_home (test_event.EventTestCase)
