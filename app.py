@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, abort, request, make_response, url_for
 from werkzeug.exceptions import HTTPException
 from flask_cors import CORS
+#for this sample auth username:password refer to file auth.py
 from auth import *
 from models import *
 from functions import *

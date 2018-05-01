@@ -6,9 +6,9 @@ auth = HTTPBasicAuth()
 
 # Dummy users for auth, only form demo purpose
 users = {
-    "user1": "solteq",
-    "user2": "solteq",
-    "user3": "solteq"
+    "user1": "password1",
+    "user2": "password2",
+    "user3": "password3"
 }
 
 @auth.get_password
