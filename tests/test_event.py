@@ -20,28 +20,28 @@ class EventTestCase(unittest.TestCase):
         self.app = app.test_client()
         self.app.testing = True
 
-    def test_1_home(self):
+    def test_01_home(self):
         """Test API for home"""
         response = self.app.get()
         data = json.loads(response.get_data())
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['name'], 'event service')
 
-    def test_2_api_get_empty(self):
+    def test_02_api_get_empty(self):
         """Test API for get fav events empty"""
         response = self.app.get('/api/events', headers=headers)
         data = json.loads(response.get_data())
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(data['events']), 0)
 
-    def test_3_api_get_events_unauthorized(self):
+    def test_03_api_get_events_unauthorized(self):
         """Test API for unauthorized access to get fav events"""
         response = self.app.get('/api/events')
         data = json.loads(response.get_data())
         self.assertEqual(response.status_code, 401)
         self.assertEqual(data['error'], 'Unauthorized access')
 
-    def test_4_api_add_event(self):
+    def test_04_api_add_event(self):
         """Test API add fav event (POST request)"""
         sample_event_id = 'kulke:44519'
         data_event = json.dumps({'event_id':sample_event_id})
@@ -52,7 +52,7 @@ class EventTestCase(unittest.TestCase):
         self.assertEqual(data['event']['id'], sample_event_id)
         self.assertEqual(data['event']['user'], username)
 
-    def test_5_api_event_creation_bad_request(self):
+    def test_05_api_event_creation_bad_request(self):
         """Test API return bad request when create an fav event with unvalid input (POST request)"""
         sample_event_id = 'kulke:44519'
         data_event = json.dumps({'eventx_id':sample_event_id})
@@ -62,7 +62,7 @@ class EventTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(data['error'], 'Bad request')
 
-    def test_6_api_add_event_2(self):
+    def test_06_api_add_event_2(self):
         """Test API add fav event (POST request)"""
         sample_event_id = 'kulke:44518'
         data_event = json.dumps({'event_id':sample_event_id})
@@ -73,14 +73,14 @@ class EventTestCase(unittest.TestCase):
         self.assertEqual(data['event']['id'], sample_event_id)
         self.assertEqual(data['event']['user'], username)
 
-    def test_7_api_can_get_all_events(self):
+    def test_07_api_can_get_all_events(self):
         """Test API can get all of user fav events (GET request)."""
         response = self.app.get('/api/events', headers=headers)
         data = json.loads(response.get_data())
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(data['events']), 2)
         
-    def test_8_api_can_get_one_event(self):
+    def test_08_api_can_get_one_event(self):
         """Test API can get one user fav event based on input event_id (GET request)."""
         sample_event_id = 'kulke:44518'
         response = self.app.get('/api/events/%s' % sample_event_id, headers=headers)
@@ -89,7 +89,7 @@ class EventTestCase(unittest.TestCase):
         self.assertEqual(data['event']['id'], sample_event_id)
         self.assertEqual(data['event']['user'], username)
 
-    def test_9_api_event_not_found(self):
+    def test_09_api_event_not_found(self):
         """Test API response event not found (GET request)."""
         sample_event_id = '-'
         response = self.app.get('/api/events/%s' % sample_event_id, headers=headers)
@@ -97,7 +97,7 @@ class EventTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertEqual(data['error'], 'Not found')
 
-    def test_7_api_can_get_all_free_events(self):
+    def test_10_api_can_get_all_free_events(self):
         """Test API can get only the free of user fav events (GET request)."""
         response = self.app.get('/api/events/free', headers=headers)
         data = json.loads(response.get_data())

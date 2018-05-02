@@ -107,33 +107,29 @@ The deployment procedure is as follows:
 
         (venv) $ export STAGE="test"
         (venv) $ python test.py
-        test_1_home (test_event.EventTestCase)
+        test_01_home (test_event.EventTestCase)
         Test API for home ... ok
-        test_2_api_get_empty (test_event.EventTestCase)
+        test_02_api_get_empty (test_event.EventTestCase)
         Test API for get fav events empty ... ok
-        test_3_api_get_events_unauthorized (test_event.EventTestCase)
+        test_03_api_get_events_unauthorized (test_event.EventTestCase)
         Test API for unauthorized access to get fav events ... ok
-        test_4_api_add_event (test_event.EventTestCase)
+        test_04_api_add_event (test_event.EventTestCase)
         Test API add fav event (POST request) ... ok
-        test_5_api_event_creation_bad_request (test_event.EventTestCase)
+        test_05_api_event_creation_bad_request (test_event.EventTestCase)
         Test API return bad request when create an fav event with unvalid input (POST request) ... ok
-        test_6_api_add_event_2 (test_event.EventTestCase)
+        test_06_api_add_event_2 (test_event.EventTestCase)
         Test API add fav event (POST request) ... ok
-        test_7_api_can_get_all_events (test_event.EventTestCase)
+        test_07_api_can_get_all_events (test_event.EventTestCase)
         Test API can get all of user fav events (GET request). ... ok
-        test_7_api_can_get_all_free_events (test_event.EventTestCase)
-        Test API can get only the free of user fav events (GET request). ... ok
-        test_8_api_can_get_one_event (test_event.EventTestCase)
+        test_08_api_can_get_one_event (test_event.EventTestCase)
         Test API can get one user fav event based on input event_id (GET request). ... ok
-        test_9_api_event_not_found (test_event.EventTestCase)
+        test_09_api_event_not_found (test_event.EventTestCase)
         Test API response event not found (GET request). ... ok
+        test_10_api_can_get_all_free_events (test_event.EventTestCase)
+        Test API can get only the free of user fav events (GET request). ... ok
 
         ----------------------------------------------------------------------
-        Ran 10 tests in 4.461s
+        Ran 10 tests in 2.579s
 
         OK
-
-
-
-
 
